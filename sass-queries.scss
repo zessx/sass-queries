@@ -1,0 +1,69 @@
+/**
+* Sass-queries
+* Manage media-queries in Sass easily.
+*
+* @author     Samuel Marchal (zessx)
+* @version    0.1
+*/
+
+$sq-breakpoints: (
+    mobile:    320px,
+    tablet:    768px,
+    desktop:   992px,
+    wide:      1200px
+) !default;
+$sq-media: "all" !default;
+$sq-debug: false !default;
+
+@mixin media($from: false, $until: false, $and: false, $media: $sq-media)
+{
+    $min: 0;
+    $max: 0;
+    $query: "";
+
+    @if $from {
+        @if type-of($from) == number {
+            $min: $from;
+        } @else {
+            $min: map-get($sq-breakpoints, $from);
+        }
+    }
+    @if $until {
+        @if type-of($until) == number {
+            $max: $until;
+        } @else {
+            $max: map-get($sq-breakpoints, $until);
+        }
+    }
+    @if $min != 0 { $query: "#{$query} and (min-width: #{$min})"; }
+    @if $max != 0 { $query: "#{$query} and (max-width: #{$max})"; }
+    @if $and      { $query: "#{$query} and #{$and}"; }
+
+    @if $query {
+        @media #{$media} #{$query} {
+            @content;
+        }
+    }
+}
+
+@if $sq-debug {
+    body:before {
+        display: block;
+        position: fixed;
+        bottom: -1px;
+        right: -1px;
+        padding: 1px 3px;
+        font-size: 10px;
+        pointer-events: none;
+        border: 1px solid #333;
+        color: #333;
+        background: rgba(255, 255, 255, .6);
+        z-index: 99999;
+
+        @each $label, $width in $sq-breakpoints {
+            @include media($from: $label) {
+                content: "#{$label} [#{$width}]";
+            }
+        }
+    }
+}
