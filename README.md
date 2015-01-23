@@ -1,5 +1,5 @@
 # SassQueries
-![SassQueries](sass-queries.png)
+![SassQueries](https://raw.githubusercontent.com/zessx/sass-queries/master/sass-queries.png)  
 Manage media-queries in Sass easily.
 
 ## Configuration
