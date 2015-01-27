@@ -10,7 +10,7 @@ Put `sass-queries.scss` file in your project, and include it via your Sass manif
 You can fully configurate SassQueries thanks to a bunch of variables prefixed with `$sq-`.  
 SassQueries provides default values for these variable, so you just have to put the one you need in your `variables.scss` file:
 
-    // Set your mobile-first breakpoints: label / min-width
+    // Set your breakpoints: label / min-width
     $sq-breakpoints: (
         mobile:    320px,
         tablet:    768px,
@@ -21,11 +21,11 @@ SassQueries provides default values for these variable, so you just have to put 
     $sq-media: "all";
     // Enable (or not) a small tag displaying your current breakpoint
     $sq-debug: false;
+    // Use mobile first or not
+    $sq-mobile-first: true;
     
 ## Usage
 SassQueries comes with a unique mixin: `media()`, which allows you to target a starting/ending breakpoint, to specify a media type, and even to add custom options.
-
-> Keep in mind everything works in a mobile-first way. 
 
     .selector {
       @media($from: tablet) {
