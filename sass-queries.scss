@@ -3,7 +3,7 @@
 * Manage media-queries in Sass easily.
 *
 * @author     Samuel Marchal (zessx)
-* @version    0.1
+* @version    0.2
 */
 
 $sq-breakpoints: (
@@ -14,7 +14,7 @@ $sq-breakpoints: (
 ) !default;
 $sq-media: "all" !default;
 $sq-debug: false !default;
-$sq-mobile-first: false !default;
+$sq-mobile-first: true !default;
 
 @mixin media($from: false, $until: false, $and: false, $media: $sq-media, $mobile-first: $sq-mobile-first)
 {
@@ -61,7 +61,8 @@ $sq-mobile-first: false !default;
         position: fixed;
         bottom: -1px;
         right: -1px;
-        padding: 1px 3px;
+        padding: 3px;
+        font-family: Verdana;
         font-size: 10px;
         pointer-events: none;
         border: 1px solid #333;
@@ -69,9 +70,25 @@ $sq-mobile-first: false !default;
         background: rgba(255, 255, 255, .6);
         z-index: 99999;
 
-        @each $label, $width in $sq-breakpoints {
-            @include media($from: $label) {
-                content: "#{$label} [#{$width}]";
+        @if $sq-mobile-first {
+            $min-breakpoint: min(map-values($sq-breakpoints)...);
+            @each $label, $width in $sq-breakpoints {
+                @include media($from: $label) {
+                    content: ">= #{$width} (#{$label})";
+                }
+            }
+            @include media($until: $min-breakpoint) {
+                content: "< #{$min-breakpoint} (undefined)";
+            }
+        } @else {
+            $max-breakpoint: max(map-values($sq-breakpoints)...);
+            @each $label, $width in $sq-breakpoints {
+                @include media($from: $label) {
+                    content: "<= #{$width} (#{$label})";
+                }
+            }
+            @include media($until: $max-breakpoint) {
+                content: "> #{$max-breakpoint} (undefined)";
             }
         }
     }

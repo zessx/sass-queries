@@ -1,8 +1,10 @@
 # SassQueries
+
 ![SassQueries](https://raw.githubusercontent.com/zessx/sass-queries/master/sass-queries.png)  
 Manage media-queries in Sass easily.
 
 ## Configuration
+
 Put `sass-queries.scss` file in your project, and include it via your Sass manifest:
 
     @import "helpers/sass-queries";
@@ -25,6 +27,7 @@ SassQueries provides default values for these variable, so you just have to put 
     $sq-mobile-first: true;
     
 ## Usage
+
 SassQueries comes with a unique mixin: `media()`, which allows you to target a starting/ending breakpoint, to specify a media type, and even to add custom options.
 
     .selector {
@@ -44,3 +47,10 @@ SassQueries comes with a unique mixin: `media()`, which allows you to target a s
         // starting + ending breakpoint
       }
     }
+
+## Todo
+
+- [x] Use default values
+- [x] Display debug tooltip
+- [x] Add mobile-first option
+- [ ] Sort `$sq-breakpoints` map depending of `$sq-mobile-first`
