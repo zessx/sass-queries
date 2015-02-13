@@ -31,19 +31,19 @@ SassQueries provides default values for these variable, so you just have to put 
 SassQueries comes with a unique mixin: `media()`, which allows you to target a starting/ending breakpoint, to specify a media type, and even to add custom options.
 
     .selector {
-      @media($from: tablet) {
+      @include media($from: tablet) {
         // starting breakpoint
       }
-      @media($until: desktop) {
+      @include media($until: desktop) {
         // ending breakpoint
       }
-      @media($from: desktop, $media: tv) {
+      @include media($from: desktop, $media: tv) {
         // media type specified
       }
-      @media($until: tablet, $and: "(orientation: landscape)") {
+      @include media($until: tablet, $and: "(orientation: landscape)") {
         // additional option
       }
-      @media($from: tablet, $until: desktop) {
+      @include media($from: tablet, $until: desktop) {
         // starting + ending breakpoint
       }
     }
