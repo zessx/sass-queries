@@ -3,7 +3,7 @@
 * Manage media-queries in Sass easily.
 *
 * @author     Samuel Marchal (zessx)
-* @version    0.2
+* @version    0.3
 */
 
 $sq-breakpoints: (
@@ -48,10 +48,8 @@ $sq-mobile-first: true !default;
     @if $max != 0 { $query: "#{$query} and (#{$dir-max}-width: #{$max})"; }
     @if $and      { $query: "#{$query} and #{$and}"; }
 
-    @if $query {
-        @media #{$media} #{$query} {
-            @content;
-        }
+    @media #{$media} #{$query} {
+        @content;
     }
 }
 
