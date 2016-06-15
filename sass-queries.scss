@@ -31,9 +31,14 @@ $sq-mobile-first: true !default;
     }
     @if $until {
         @if type-of($until) == number {
-            $max: $until - 1;
+            $max: $until;
         } @else {
-            $max: map-get($sq-breakpoints, $until) - 1;
+            $max: map-get($sq-breakpoints, $until);
+        }
+        @if $mobile-first {
+            $max: $max - 1;
+        } @else {
+            $max: $max + 1;
         }
     }
 
