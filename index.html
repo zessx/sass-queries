@@ -5,7 +5,7 @@
     <title>Sass-queries by zessx</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -20,13 +20,13 @@
 
     <section class="main-content">
       <h1>
-<a id="sassqueries" class="anchor" href="#sassqueries" aria-hidden="true"><span class="octicon octicon-link"></span></a>SassQueries</h1>
+<a id="sassqueries" class="anchor" href="#sassqueries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SassQueries</h1>
 
 <p><img src="https://raw.githubusercontent.com/zessx/sass-queries/master/sass-queries.png" alt="SassQueries"><br>
 Manage media-queries in Sass easily.</p>
 
 <h2>
-<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
 
 <p>Put <code>sass-queries.scss</code> file in your project, and include it via your Sass manifest:</p>
 
@@ -52,31 +52,31 @@ $sq-mobile-first: true;
 </code></pre>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>SassQueries comes with a unique mixin: <code>media()</code>, which allows you to target a starting/ending breakpoint, to specify a media type, and even to add custom options.</p>
 
 <pre><code>.selector {
-  @media($from: tablet) {
+  @include media($from: tablet) {
     // starting breakpoint
   }
-  @media($until: desktop) {
+  @include media($until: desktop) {
     // ending breakpoint
   }
-  @media($from: desktop, $media: tv) {
+  @include media($from: desktop, $media: tv) {
     // media type specified
   }
-  @media($until: tablet, $and: "(orientation: landscape)") {
+  @include media($until: tablet, $and: "(orientation: landscape)") {
     // additional option
   }
-  @media($from: tablet, $until: desktop) {
+  @include media($from: tablet, $until: desktop) {
     // starting + ending breakpoint
   }
 }
 </code></pre>
 
 <h2>
-<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Todo</h2>
 
 <ul>
 <li>[x] Use default values</li>
@@ -107,4 +107,3 @@ $sq-mobile-first: true;
 
   </body>
 </html>
-
